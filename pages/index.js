@@ -1,16 +1,24 @@
-import React from "react";
 import axios from "axios";
+import React from "react";
 
 const query = `{ hello }`;
 
-const App = props => <h1>The response from the server is: {props.hello}</h1>;
+const App = (props) => {
+  return (
+    <h1>The response from the server is: {props.hello}</h1>
+  );
+};
 
-App.getInitialProps = async () => {
+export async function getStaticProps(context) {
   const response = await axios.post(`${process.env.API_URL}/api/graphql`, {
     query
   });
 
-  return { ...response.data.data };
-};
+  return {
+    props: {
+      ...response.data.data,
+    },
+  };
+}
 
 export default App;

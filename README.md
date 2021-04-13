@@ -1,12 +1,12 @@
-# Tiny GraphQL API with Next.js v9
+# Tiny GraphQL API with Next.js
 
 ## Installation
 
 Clone the repository:
 
 ```bash
-git clone git@github.com:mikefrancis/nextjs-9-graphql-api.git
-cd nextjs-9-graphql-api
+git clone git@github.com:mikefrancis/nextjs-graphql-api.git
+cd nextjs-graphql-api
 ```
 
 Install the dependencies:
@@ -17,22 +17,12 @@ yarn
 
 ## Development
 
-Either use **next.js** for development:
+Copy the environment file to expose the API URL (and update if needed):
 
 ```bash
-API_URL=http://localhost:3000 yarn next dev
+cp .env.example .env
 ```
 
-or use Zeit's **now** development command:
-
 ```bash
-API_URL=http://localhost:3000 now dev
-```
-
-N.B: if you are using a different hostname and/or port, be sure to change `API_URL` to the root of the server which next/now boots.
-
-## Deployment
-
-```bash
-now -e API_URL=http://path/to/deployment
+yarn dev
 ```
