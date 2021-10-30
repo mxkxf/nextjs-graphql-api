@@ -12,7 +12,7 @@ cd nextjs-graphql-api
 Install the dependencies:
 
 ```bash
-yarn
+npm install
 ```
 
 ## Development
@@ -24,5 +24,5 @@ cp .env.example .env
 ```
 
 ```bash
-yarn dev
+npm run dev
 ```
