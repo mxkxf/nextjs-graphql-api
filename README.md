@@ -17,12 +17,6 @@ npm install
 
 ## Development
 
-Copy the environment file to expose the API URL (and update if needed):
-
-```bash
-cp .env.example .env
-```
-
 ```bash
 npm run dev
 ```

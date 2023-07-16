@@ -1,16 +1,29 @@
-import { graphql, buildSchema } from "graphql";
+import {
+  graphql,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+} from "graphql";
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: "RootQueryType",
+    fields: {
+      hello: {
+        type: GraphQLString,
+        resolve() {
+          return "world";
+        },
+      },
+    },
+  }),
+});
 
-const root = { hello: () => "Hello world!" };
-
-export default async (req, res) => {
-  const query = req.body.query;
-  const response = await graphql(schema, query, root);
+async function handler(req, res) {
+  const source = req.body.query;
+  const response = await graphql({ schema, source });
 
   res.json(response);
-};
+}
+
+export default handler;
